@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 
 from .forms import PostForm, RawPostForm
 from .models import Post
@@ -27,10 +27,31 @@ def post_create_view(request):
 #     }
 #     return render(request, "post/create.html", context)
 
-def post_content_view(request):
-    obj = Post.objects.get(id=1)
+# def post_content_view(request):
+#     obj = Post.objects.get(id=1)
+#     context = {
+#         'title': obj.title,
+#         'content': obj.content
+#     }
+#     return render(request, "post/content.html", context)
+
+def post_content_view(request, my_id):
+    obj = get_object_or_404(Post, id=my_id)
     context = {
         'title': obj.title,
         'content': obj.content
     }
     return render(request, "post/content.html", context)
+
+def post_delete_view(request, my_id):
+    obj = get_object_or_404(Post, id=my_id)
+
+    if request.method == "POST":
+        obj.delete()
+        return redirect('../')
+
+    context = {
+        'title': obj.title,
+    }
+    return render(request, "post/delete.html", context)
+
