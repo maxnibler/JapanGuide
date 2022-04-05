@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 
-from .forms import PostForm, RawPostForm
+from .forms import RawPostForm
 from .models import Post
 # Create your views here.
 
@@ -17,23 +17,6 @@ def post_create_view(request):
         'form': form,
     }
     return render(request, "post/create.html", context)
-
-# def post_create_view(request):
-#     form = PostForm(request.POST or None)
-#     if form.is_valid():
-#         form.save()
-#     context = {
-#         'form': form
-#     }
-#     return render(request, "post/create.html", context)
-
-# def post_content_view(request):
-#     obj = Post.objects.get(id=1)
-#     context = {
-#         'title': obj.title,
-#         'content': obj.content
-#     }
-#     return render(request, "post/content.html", context)
 
 def post_content_view(request, my_id):
     obj = get_object_or_404(Post, id=my_id)
