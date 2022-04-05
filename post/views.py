@@ -55,3 +55,10 @@ def post_delete_view(request, my_id):
     }
     return render(request, "post/delete.html", context)
 
+def post_list_view(request):
+    queryset = Post.objects.all()
+    context = {
+        'object_list': queryset,
+    }
+    return render(request, "post/list.html", context)
+
