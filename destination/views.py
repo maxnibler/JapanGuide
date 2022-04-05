@@ -21,13 +21,16 @@ class DestinationCreateView(CreateView):
     def form_valid(self, form):
         return super().form_valid(form)
 
+
 class DestinationDetailView(DetailView):
     template_name = 'destination/destination_detail.html'
     queryset = Destination.objects.all()
 
+
 class DestinationListView(ListView):
     template_name = 'destination/destination_list.html'
     queryset = Destination.objects.all()
+
 
 class DestinationUpdateView(UpdateView):
     template_name = 'destination/destination_create.html'
@@ -40,6 +43,7 @@ class DestinationUpdateView(UpdateView):
 
     def form_valid(self, form):
         return super().form_valid(form)
+
 
 class DestinationDeleteView(DeleteView):
     template_name = 'destination/destination_delete.html'

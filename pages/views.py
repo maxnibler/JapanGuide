@@ -10,3 +10,13 @@ def say_hello(request):
         "text": "text",
     }
     return render(request, 'pages/home.html', context)
+
+def home(request):
+    context = {
+
+    }
+    return render(request, 'pages/home_page.html', context)
+    
+def account(request):
+    context = {}
+    return render(request, 'pages/account_page.html', context)

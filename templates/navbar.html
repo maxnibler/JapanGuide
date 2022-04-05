@@ -1,7 +1,12 @@
 <nav>
     <ul>
+        <li><a href="/">Home</a></li>
         <li>Contact</li>
         <li>About</li>
-        <li>Home</li>
+        {% if user.is_authenticated %}
+        <li><a href="/account/">Account [{{user.username}}]</a></li>
+        {% else %}
+        <li><a href="/accounts/login/">Login</a></li>
+        {% endif %}
     </ul>
 </nav>
