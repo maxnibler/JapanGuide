@@ -9,4 +9,4 @@ def say_hello(request):
         "number": 1,
         "text": "text",
     }
-    return render(request, 'home.html', context)
+    return render(request, 'pages/home.html', context)
