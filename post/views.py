@@ -1,18 +1,31 @@
 from django.shortcuts import render
 
-from .forms import PostForm
+from .forms import PostForm, RawPostForm
 from .models import Post
 # Create your views here.
 
 def post_create_view(request):
-    form = PostForm(request.POST or None)
-    if form.is_valid():
-        form.save()
-
+    form = RawPostForm()
+    if request.method == "POST":
+        form = RawPostForm(request.POST)
+        if form.is_valid():
+            print(form.cleaned_data)
+            Post.objects.create(**form.cleaned_data)
+        else:
+            print(form.errors)
     context = {
-        'form': form
+        'form': form,
     }
     return render(request, "post/create.html", context)
+
+# def post_create_view(request):
+#     form = PostForm(request.POST or None)
+#     if form.is_valid():
+#         form.save()
+#     context = {
+#         'form': form
+#     }
+#     return render(request, "post/create.html", context)
 
 def post_content_view(request):
     obj = Post.objects.get(id=1)
