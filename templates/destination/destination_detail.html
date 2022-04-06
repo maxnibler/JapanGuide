@@ -5,8 +5,10 @@
 <h1>Destination Details</h1>
 <div>
     <h2>{{object.name}}</h2>
-    <p>{{object.description}}</p>
+    <p>{{object.description|safe}}</p>
     <p>Rating: {{object.rating}}</p>
+    <p>Region: {{object.get_region_display}}</p>
+    <p>Location: {{object.get_location_display}}</p>
 </div>
 
 {% endblock content %}

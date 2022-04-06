@@ -2,5 +2,8 @@
 
 {% block content %}
 <h1>Home</h1>
-<p>Todo: Featured posts</p>
+<p>{{featured.name}}</p>
+{% if featured.description %}
+    <a href="{{featured.get_absolute_url}}">Go To</a>
+{% endif %}
 {% endblock content %}

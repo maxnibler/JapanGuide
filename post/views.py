@@ -1,8 +1,10 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.views import View
 
 from .forms import RawPostForm
 from .models import Post
 # Create your views here.
+
 
 def post_create_view(request):
     form = RawPostForm()
