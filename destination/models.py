@@ -31,7 +31,7 @@ class Destination(models.Model):
     image = models.CharField(max_length=200, default="https://i.ibb.co/RvmN9CH/Biwako-Sunset.jpg")
     description = RichTextField(blank=True, null=True)
     region = models.CharField(max_length=2, choices=REGION_CHOICES, default=REGION_CHOICES[0])
-    location = models.CharField(max_length=3, choices=LOCATION_CHOICES, default='UAA')
+    location = models.CharField(max_length=3, choices=LOCATION_CHOICES, default=LOCATION_CHOICES[0])
     rating = models.IntegerField(default=5, validators=[
             MaxValueValidator(5),
             MinValueValidator(1),
