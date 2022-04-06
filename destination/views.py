@@ -24,6 +24,8 @@ class DestinationCreateView(View):
         return render (request, self.template_name, context)
 
     def post(self, request):
+        if not request.user.is_staff:
+            return redirect('home-page')
         form = DestinationModelForm(request.POST)
         if form.is_valid():
             form.save()
@@ -62,10 +64,20 @@ class DestinationUpdateView(UpdateView):
 
 class DestinationDeleteView(DeleteView):
     template_name = 'destination/destination_delete.html'
-
-    def get_object(self):
-        id_ = self.kwargs.get("pk")
-        return get_object_or_404(Destination, pk=id_)
-
-    def get_success_url(self):
-        return reverse('destination-list')
+    def get(self, request, pk=None):
+        if not request.user.is_staff:
+            return redirect('home-page')
+        context = {}
+        if pk is not None:
+            obj = get_object_or_404(Destination, pk=pk)
+            context['object'] = obj
+        return render(request, self.template_name, context)
+    
+    def post(self, request, pk=None):
+        if not request.user.is_staff:
+            return redirect('home-page')
+        if pk is not None:
+            obj = get_object_or_404(Destination, pk=pk)
+            obj.delete()
+            return redirect('../../')
+        return render(request, self.template_name, {})
