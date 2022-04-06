@@ -1,6 +1,6 @@
 from django.urls import reverse
 from django.shortcuts import get_object_or_404, render
-
+from django.views import View
 from django.views.generic import (
     CreateView,
     DetailView,
@@ -9,8 +9,9 @@ from django.views.generic import (
     DeleteView,
 )
 
+
 from .models import Destination
-from .forms import DestinationModelForm, DestinationRawForm
+from .forms import DestinationModelForm
 # Create your views here.
 
 class DestinationCreateView(CreateView):
@@ -22,9 +23,15 @@ class DestinationCreateView(CreateView):
         return super().form_valid(form)
 
 
-class DestinationDetailView(DetailView):
+class DestinationDetailView(View):
     template_name = 'destination/destination_detail.html'
-    queryset = Destination.objects.all()
+    def get(self, request, pk=None, *args, **kwargs):
+        queryset = Destination.objects.get(pk=pk)
+        context = {
+            "object": queryset,
+            "image": "https://i.ibb.co/Ws9kxNk/where.png"
+        }
+        return render(request, self.template_name, context)
 
 
 class DestinationListView(ListView):
