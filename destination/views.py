@@ -17,13 +17,13 @@ from .forms import DestinationModelForm
 class DestinationCreateView(View):
     template_name = 'destination/destination_create.html'
     queryset = Destination.objects.all()
-    def get(self, request):
+    def get(self, request, *args, **kwargs):
         if not request.user.is_staff:
             return redirect('home-page')
         context = {'form': DestinationModelForm}
         return render (request, self.template_name, context)
 
-    def post(self, request):
+    def post(self, request, *args, **kwargs):
         if not request.user.is_staff:
             return redirect('home-page')
         form = DestinationModelForm(request.POST)
@@ -51,20 +51,49 @@ class DestinationListView(ListView):
 
 class DestinationUpdateView(UpdateView):
     template_name = 'destination/destination_create.html'
-    form_class = DestinationModelForm
-    queryset = Destination.objects.all()
-
     def get_object(self):
-        id_ = self.kwargs.get("pk")
-        return get_object_or_404(Destination, pk=id_)
+        pk = self.kwargs.get('pk')
+        obj = None
+        if pk is not None:
+            obj = get_object_or_404(Destination, pk=pk)
+        return obj
 
-    def form_valid(self, form):
-        return super().form_valid(form)
+    def get(self, request, *args, **kwargs):
+        if not request.user.is_staff:
+            return redirect('home-page')
+        obj = self.get_object()
+        context = {
+            'object': obj,
+            'form': DestinationModelForm(instance=obj),
+        }
+        return render(request, self.template_name, context)
+
+    def post(self, request, *args, **kwargs):
+        if not request.user.is_staff:
+            return redirect('home-page')
+        obj = self.get_object()
+        form = DestinationModelForm(request.POST, instance=obj)
+        if form.is_valid():
+            form.save()
+        context = {'form': form}
+        return render (request, self.template_name, context)
+
+# class DestinationUpdateView(UpdateView):
+#     template_name = 'destination/destination_create.html'
+#     form_class = DestinationModelForm
+#     queryset = Destination.objects.all()
+
+#     def get_object(self):
+#         id_ = self.kwargs.get("pk")
+#         return get_object_or_404(Destination, pk=id_)
+
+#     def form_valid(self, form):
+#         return super().form_valid(form)
 
 
-class DestinationDeleteView(DeleteView):
+class DestinationDeleteView(View):
     template_name = 'destination/destination_delete.html'
-    def get(self, request, pk=None):
+    def get(self, request, pk=None, *args, **kwargs):
         if not request.user.is_staff:
             return redirect('home-page')
         context = {}
@@ -73,7 +102,7 @@ class DestinationDeleteView(DeleteView):
             context['object'] = obj
         return render(request, self.template_name, context)
     
-    def post(self, request, pk=None):
+    def post(self, request, pk=None, *args, **kwargs):
         if not request.user.is_staff:
             return redirect('home-page')
         if pk is not None:
