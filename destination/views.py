@@ -1,5 +1,5 @@
 from django.urls import reverse
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.views import View
 from django.views.generic import (
     CreateView,
@@ -14,23 +14,31 @@ from .models import Destination
 from .forms import DestinationModelForm
 # Create your views here.
 
-class DestinationCreateView(CreateView):
+class DestinationCreateView(View):
     template_name = 'destination/destination_create.html'
-    form_class = DestinationModelForm
     queryset = Destination.objects.all()
+    def get(self, request):
+        if not request.user.is_staff:
+            return redirect('home-page')
+        context = {'form': DestinationModelForm}
+        return render (request, self.template_name, context)
 
-    def form_valid(self, form):
-        return super().form_valid(form)
-
+    def post(self, request):
+        form = DestinationModelForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('destination-list')
+        context = {'form': self.form_class}
+        return render (request, self.template_name, context)
+        
 
 class DestinationDetailView(View):
     template_name = 'destination/destination_detail.html'
     def get(self, request, pk=None, *args, **kwargs):
-        queryset = Destination.objects.get(pk=pk)
-        context = {
-            "object": queryset,
-            "image": "https://i.ibb.co/Ws9kxNk/where.png"
-        }
+        context = {}
+        if pk is not None:
+            obj = get_object_or_404(Destination, pk=pk)
+            context['object'] = obj
         return render(request, self.template_name, context)
 
 

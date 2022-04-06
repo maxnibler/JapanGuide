@@ -4,7 +4,7 @@
         <li><a href="/destination/">Destinations</a></li>
         <li><a href="/about/">About</a></li>
         {% if user.is_authenticated %}
-        <li><a href="/account/">Account [{{user.username}}]</a></li>
+        <li><a href="/account/">{{user.username}}</a></li>
         {% else %}
         <li><a href="/accounts/signin/">Login</a></li>
         {% endif %}
