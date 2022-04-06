@@ -3,8 +3,13 @@
 {% block content %}
 
 <form action='.' method='POST'> {% csrf_token %}
+    {{form.media}}
     {{form.as_p}}
     <input type="submit" value="Save"/>
 </form>
 
 {% endblock content %}
+
+{% load static %}
+<script type="text/javascript" src="{%static "ckeditor/ckeditor-init.js"%}"></script>
+<script type="text/javascript" src="{%static "ckeditor/ckeditor/ckeditor.js"%}"></script>

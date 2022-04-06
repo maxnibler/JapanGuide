@@ -10,7 +10,7 @@ from django.views.generic import (
 )
 
 from .models import Destination
-from .forms import DestinationModelForm
+from .forms import DestinationModelForm, DestinationRawForm
 # Create your views here.
 
 class DestinationCreateView(CreateView):
