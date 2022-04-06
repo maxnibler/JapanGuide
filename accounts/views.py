@@ -6,10 +6,17 @@ from django.views import generic, View
 
 # Create your views here.
 
+class SigninView(View):
+    template_name = 'accounts/signin.html'
+    def get(self, request):
+        if request.user.is_authenticated:
+            return redirect('home-page')
+        context = {}
+        return render(request, self.template_name, context)
+        
+        
 class SignupView(View):
     template_name = 'accounts/signup.html'
-    form_class = UserCreationForm
-    success_url = reverse_lazy('login')
     def get(self, request):
         if request.user.is_authenticated:
             return redirect('home-page')
@@ -21,6 +28,7 @@ class SignupView(View):
         form = UserCreationForm(request.POST)
         if form.is_valid():
             form.save()
+            return redirect('login')
         context = {'form': form}
         return render(request, self.template_name, context)
 
