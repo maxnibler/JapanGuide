@@ -12,6 +12,7 @@ class DestinationModelForm(forms.ModelForm):
             'rating',
             'region',
             'location',
+            'image',
         ]
 
 # This form is broken, using previous on because it works now

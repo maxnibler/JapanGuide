@@ -28,6 +28,7 @@ class Destination(models.Model):
         ('SAP', 'Sapporo'),
     ]
     name = models.CharField(max_length=100)
+    image = models.CharField(max_length=200, default="https://i.ibb.co/RvmN9CH/Biwako-Sunset.jpg")
     description = RichTextField(blank=True, null=True)
     region = models.CharField(max_length=2, choices=REGION_CHOICES, default=REGION_CHOICES[0])
     location = models.CharField(max_length=3, choices=LOCATION_CHOICES, default='UAA')
