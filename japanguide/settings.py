@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'pages',
     'destination',
     'accounts',
+    'japanguide',
 ]
 
 MIDDLEWARE = [
