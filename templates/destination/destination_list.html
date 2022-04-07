@@ -34,7 +34,7 @@
                 </div>
             </div>
         </div>
-    {% if forloop.counter|modulo:4 == 0 %}
+    {% if forloop.counter|modulo:4 == 0 or forloop.last%}
     </div>
     {% endif %}
     {% endfor %}

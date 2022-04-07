@@ -13,6 +13,7 @@ class DestinationModelForm(forms.ModelForm):
             'region',
             'location',
             'image',
+            'tags',
         ]
 
 # This form is broken, using previous on because it works now

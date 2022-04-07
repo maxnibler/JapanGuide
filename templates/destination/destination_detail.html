@@ -19,6 +19,12 @@
             <div class="block">
                 <p class="title is-5">Location: {{object.get_location_display}}</p>
             </div>
+            <div class="block">
+                <p class="title is-5">Tags:</p>
+                {% for tag in object.tags.list %}
+                    <p class="button is-info">{{tag}}</p>
+                {% endfor %}
+            </div>
         </div>
     </div>
     <p class="title is-5">Description:</p>
