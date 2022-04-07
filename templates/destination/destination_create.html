@@ -2,10 +2,25 @@
 
 {% block content %}
 
-<form action='.' method='POST'> {% csrf_token %}
+<h1 class="title is-4">Destination Form</h1>
+<form class="box has-background-light" action='.' method='POST'> {% csrf_token %}
     {{form.media}}
-    {{form.as_p}}
-    <input type="submit" value="Save"/>
+    {% for field in form %}
+    <div class="block m-2">
+        {{field.errors}}
+        <p>
+            {{field.label_tag}} 
+        </p>
+        {{field}}
+        {% if field.help_text %}
+        <p>{{field.help_text|safe}}</p>
+        {% endif %}
+    </div>
+    {% endfor %}
+    <div class="block">
+        <input class="button is-primary" type="submit" value="Save"/>
+        <a class="button is-link is-outlined has-text-dark" href="{{object.get_absolute_url}}">Return</a>
+    </div>
 </form>
 
 {% endblock content %}

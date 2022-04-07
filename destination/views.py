@@ -75,7 +75,7 @@ class DestinationUpdateView(UpdateView):
         form = DestinationModelForm(request.POST, instance=obj)
         if form.is_valid():
             form.save()
-        context = {'form': form}
+        context = {'form': form, 'object': obj}
         return render (request, self.template_name, context)
 
 # class DestinationUpdateView(UpdateView):
