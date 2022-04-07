@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'pages',
     'destination',
     'accounts',
-    'japanguide',
 ]
 
 MIDDLEWARE = [
@@ -78,7 +77,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'application.japanguide.wsgi.application'
+WSGI_APPLICATION = 'japanguide.wsgi.application'
 
 # IPS for localhost
 INTERNAL_IPS = [
