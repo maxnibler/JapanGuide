@@ -26,4 +26,4 @@ urlpatterns = [
     path('', include('pages.urls')),
     path('__debug__/', include(debug_toolbar.urls)),
     path('destination/', include('destination.urls')),
-]# + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
