@@ -77,7 +77,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'japanguide.wsgi.application'
+WSGI_APPLICATION = 'application.japanguide.wsgi.application'
 
 # IPS for localhost
 INTERNAL_IPS = [
