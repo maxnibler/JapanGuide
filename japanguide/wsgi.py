@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'japanguide.japanguide.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'japanguide.settings')
 
 application = get_wsgi_application()
