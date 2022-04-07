@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Home</h1>
-{% for instance in objects %}
-<h3>{{instance.title}}</h3>
-<p>{{instance.contents|safe}}</p>
-{% endfor %}
+<h1 class="title">Home</h1>
+<div class="block">
+    {% for instance in objects %}
+    <div class="box has-background-light">
+        <h3 class="title is-4">{{instance.title}}</h3>
+        <p>{{instance.contents|safe}}</p>
+    </div>
+    {% endfor %}
+</div>
 {% endblock content %}

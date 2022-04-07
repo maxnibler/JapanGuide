@@ -1,14 +1,20 @@
 <!doctype html>
 <html>
     <head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>
             Ace Japan
         </title>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/JapanStyle.css' %}">
     </head>
     <body>
         {% include 'navbar.html' %}
-        {% block content %}
-            Replace Me
-        {% endblock content %}
+        <div class="section">
+            {% block content %}
+                Replace Me
+            {% endblock content %}
+        </div>
     </body>
 </html>
