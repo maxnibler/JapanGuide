@@ -2,7 +2,7 @@
 .vscode/
 
 # Django Secret Files
-application/settings.py
+japanguide/settings.py
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
