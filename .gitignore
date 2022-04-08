@@ -3,6 +3,7 @@
 
 # Django Secret Files
 japanguide/settings.py
+etc/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

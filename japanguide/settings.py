@@ -25,7 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-rr&#j(c1d(%uj-m2&c0u@la44_$q&)4ecmvxwg+et6q(qiy$z#'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['jace.us-west-1.elasticbeanstalk.com', '127.0.0.1', '172.31.31.189']
 
@@ -166,5 +166,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Login Redirect
 LOGIN_REDIRECT_URL = "home-page"
 LOGOUT_REDIRECT_URL = "home-page"
-
-DEBUG = False
