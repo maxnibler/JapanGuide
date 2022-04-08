@@ -29,7 +29,8 @@ with open('etc/secret_key.txt') as f:
 if 'RDS_DB_NAME' in os.environ:
     DEBUG = False       
 else:
-    Debug = True
+    DEBUG = True
+    # DEBUG = False
 
 ALLOWED_HOSTS = ['jace.us-west-1.elasticbeanstalk.com', '127.0.0.1', '172.31.31.189']
 
@@ -167,15 +168,16 @@ LOGIN_REDIRECT_URL = "home-page"
 LOGOUT_REDIRECT_URL = "home-page"
 
 # Deployment settings
-CSRF_COOKIE_SECURE = True
+if 'RDS_DB_NAME' in os.environ:
+    CSRF_COOKIE_SECURE = True
 
-SESSION_COOKIE_SECURE = True
+    SESSION_COOKIE_SECURE = True
 
-SECURE_HSTS_SECONDS = 60
+    SECURE_HSTS_SECONDS = 60
 
-SECURE_SSL_REDIRECT = True
+    SECURE_SSL_REDIRECT = True
 
-SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
-SECURE_HSTS_PRELOAD = True
+    SECURE_HSTS_PRELOAD = True
 
