@@ -7,8 +7,12 @@ accounts/management/commands/createsu.py
 etc/*
 .ebextensions/https*
 
-#anchor file
+# exceptions
+!/static/css/*
 !/etc/anchor.txt
+
+# CSS Files
+static/*
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
