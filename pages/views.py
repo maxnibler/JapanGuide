@@ -4,14 +4,13 @@ from django.views import View
 
 # from destination.models import Destination
 from .models import PageText
-from django.core.management.utils import get_random_secret_key
+# from django.core.management.utils import get_random_secret_key
 
 class HomeView(View):
     def get(self, request):
         page_key = 'HO'
         queryset = PageText.objects.filter(page=page_key)
-        x = get_random_secret_key()
-        context = {"objects": queryset, "x": x}
+        context = {"objects": queryset}
         return render(request, 'pages/home_page.html', context)
 
 class AboutView(View):
