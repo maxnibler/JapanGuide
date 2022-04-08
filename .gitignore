@@ -4,6 +4,8 @@
 # Django Secret Files
 japanguide/settings.py
 etc/*
+.ebextensions/https*
+
 #anchor file
 !/etc/anchor.txt
 
