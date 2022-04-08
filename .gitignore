@@ -3,13 +3,12 @@
 
 # Django Secret Files
 japanguide/settings.py
-japanguide/management/commands/createsu.py
+accounts/management/commands/createsu.py
 etc/*
 .ebextensions/https*
 
 #anchor file
 !/etc/anchor.txt
-!/japanguide/management/commands/anchor.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
