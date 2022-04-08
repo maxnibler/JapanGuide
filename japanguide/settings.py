@@ -26,7 +26,10 @@ with open('etc/secret_key.txt') as f:
     SECRET_KEY = f.read().strip()
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+if 'RDS_DB_NAME' in os.environ:
+    DEBUG = False       
+else:
+    Debug = True
 
 ALLOWED_HOSTS = ['jace.us-west-1.elasticbeanstalk.com', '127.0.0.1', '172.31.31.189']
 
