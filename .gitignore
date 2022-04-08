@@ -9,7 +9,7 @@ etc/*
 
 #anchor file
 !/etc/anchor.txt
-!/japanguide/management/anchor.txt
+!/japanguide/management/commands/anchor.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
