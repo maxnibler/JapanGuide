@@ -1,14 +1,17 @@
 <nav class="navbar" role="navigation" aria-label="main navigation">
-    <div class="navbar-menu">
-        <a class="navbar-brand" href="/">
-            <p class="navbar-item">Home</p>
-            <a class="navbar-burger">
-                <span aria-hidden="true"></span>
-                <span aria-hidden="true"></span>
-            </a>
+    <div class="navbar-brand">
+        <a class="navbar-item" href="/">Home</a>
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbar-items">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
         </a>
-        <a class="navbar-item" href="/destination/">Destinations</a>
-        <a class="navbar-item" href="/about/">About</a>
+    </div>
+    <div class="navbar-menu" id="navbar-items">
+        <div class="navbar-start">
+            <a class="navbar-item" href="/destination/">Destinations</a>
+            <a class="navbar-item" href="/about/">About</a>
+        </div>
         <div class="navbar-end">
             <div class="navbar-item">
                 {% if user.is_authenticated %}
