@@ -152,6 +152,8 @@ STATIC_URL = 'static/'
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
+STATICFILES_DIRS = []
+
 # Media files
 MEDIA_URL = '/'
 
@@ -165,7 +167,7 @@ LOGIN_REDIRECT_URL = "home-page"
 LOGOUT_REDIRECT_URL = "home-page"
 
 # Deployment settings
-if 'RDS_DB_NAME' in os.environ:
+if not DEBUG:
     CSRF_COOKIE_SECURE = True
 
     SESSION_COOKIE_SECURE = True

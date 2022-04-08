@@ -18,6 +18,7 @@ from django.urls import path, include
 import debug_toolbar
 from django.conf import settings
 from django.conf.urls.static import static
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,4 +27,7 @@ urlpatterns = [
     path('', include('pages.urls')),
     path('__debug__/', include(debug_toolbar.urls)),
     path('destination/', include('destination.urls')),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+
+if settings.DEBUG: 
+    urlpatterns += staticfiles_urlpatterns()
