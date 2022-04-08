@@ -7,12 +7,12 @@ accounts/management/commands/createsu.py
 etc/*
 .ebextensions/https*
 
-# exceptions
-!/static/css/*
-!/etc/anchor.txt
-
 # CSS Files
 static/*
+
+# exceptions
+!/static/css/styles/JapanStyle.css
+!/etc/anchor.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
