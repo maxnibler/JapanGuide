@@ -4,6 +4,8 @@
 # Django Secret Files
 japanguide/settings.py
 etc/*
+#anchor file
+!/etc/anchor.txt
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
