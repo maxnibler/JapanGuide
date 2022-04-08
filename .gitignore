@@ -3,6 +3,7 @@
 
 # Django Secret Files
 japanguide/settings.py
+japanguide/management/*
 etc/*
 .ebextensions/https*
 
