@@ -1,1 +1,0 @@
-this is a file to add the etc dir to my repo
