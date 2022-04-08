@@ -12,6 +12,7 @@ class DestinationModelForm(forms.ModelForm):
             'rating',
             'region',
             'location',
+            'map_link',
             'image',
             'tags',
         ]
