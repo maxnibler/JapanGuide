@@ -170,3 +170,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Login Redirect
 LOGIN_REDIRECT_URL = "home-page"
 LOGOUT_REDIRECT_URL = "home-page"
+
+# Deployment settings
+CSRF_COOKIE_SECURE = True
+
+SESSION_COOKIE_SECURE = True
+
