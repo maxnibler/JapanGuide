@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1 class="title">{{object.name}}</h1>
+<div class="box has-background-light">
+    <div class="block">
+        <p class="title is-5">Description:</p>
+        <p>{{object.description|safe}}</p>
+    </div>
+    <div class="block">
+        <p class="title is-5">Guide:</p>
+        <p>{{object.contents|safe}}</p>
+    </div>
+</div>
+{% endblock content %}

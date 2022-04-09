@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 from ckeditor.fields import RichTextField
 
 # Create your models here.
@@ -11,3 +12,6 @@ class Guide(models.Model):
     contents = RichTextField(blank=True, null=True)
     tags = models.JSONField("tags", default=tag_default)
 
+    def get_absolute_url(self):
+        return reverse("guide-detail", kwargs={"pk": self.pk})
+    
