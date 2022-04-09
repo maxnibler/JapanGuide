@@ -32,8 +32,13 @@ else:
     DEBUG = True
     # DEBUG = False
 
-ALLOWED_HOSTS = ['jace.us-west-1.elasticbeanstalk.com', '127.0.0.1', '172.31.31.189']
-
+ALLOWED_HOSTS = [
+    'jace.us-west-1.elasticbeanstalk.com',
+    '127.0.0.1',
+    '172.31.31.189',
+    'japantravelace.net',
+    'japantravelace.com',
+]
 
 # Application definition
 
@@ -49,6 +54,7 @@ INSTALLED_APPS = [
     'pages',
     'destination',
     'accounts',
+    'guide',
 ]
 
 MIDDLEWARE = [

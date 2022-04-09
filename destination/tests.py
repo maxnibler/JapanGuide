@@ -5,7 +5,6 @@ from .models import Destination
 # Create your tests here.
 
 class URLTests(TestCase):
-    # Tests the Destination Page
     @classmethod
     def setUpTestData(cls):
         cls.item = Destination.objects.create(
