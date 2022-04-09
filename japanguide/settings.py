@@ -38,6 +38,7 @@ ALLOWED_HOSTS = [
     '172.31.31.189',
     'japantravelace.net',
     'japantravelace.com',
+    '13.57.146.244'
 ]
 
 # Application definition
