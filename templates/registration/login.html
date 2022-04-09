@@ -2,10 +2,21 @@
 
 {% block content %}
 
-<h2>Log In</h2>
-<form action="." method="POST"> {% csrf_token %}
-    {{form.as_p}}
-    <button type="submit">Log In</button>
+<h1 class="title">Log In</h1>
+<form class="box has-background-light" action="." method="POST"> {% csrf_token %}
+    {% for field in form %}
+    <div class="block m-2">
+        {{field.errors}}
+        <p>{{field.label_tag}}</p>
+        {{field}}
+        {% if field.help_text %}
+        <p>{{field.help_text|safe}}</p>
+        {% endif %}
+    </div>
+    {% endfor %}
+    <div class="block">
+        <input class="button is-primary" type="submit" value="Log In"/>
+    </div>
 </form>
 
 {% endblock content %}

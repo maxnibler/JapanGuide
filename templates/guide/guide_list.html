@@ -5,7 +5,16 @@
 <h1 class="title">Guides (Coming Soon)</h1>
 {% for instance in object_list %}
 <div class="box has-background-light">
-    <p class="title is-5">{{instance.name}}</p>
+    <div class="columns">
+        <div class="column">
+            <p class="title is-5">{{instance.name}}</p>
+        </div>
+        <div class="column">
+            {% if instance.description %}
+            <p class="content">{{instance.description}}</p>
+            {% endif %}
+        </div>
+    </div>
 </div>
 
 
