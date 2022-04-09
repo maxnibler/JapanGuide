@@ -2,11 +2,8 @@ from django.urls import reverse
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views import View
 from django.views.generic import (
-    CreateView,
-    DetailView,
     ListView,
     UpdateView,
-    DeleteView,
 )
 
 
