@@ -36,6 +36,7 @@ ALLOWED_HOSTS = [
     'jace.us-west-1.elasticbeanstalk.com',
     '127.0.0.1',
     '172.31.31.189',
+    'www.japantravelace.net',
     'japantravelace.net',
     'japantravelace.com',
     '13.57.146.244'
