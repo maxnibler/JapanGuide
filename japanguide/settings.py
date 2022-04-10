@@ -37,6 +37,7 @@ ALLOWED_HOSTS = [
     '127.0.0.1',
     '172.31.31.189',
     'www.japantravelace.net',
+    'japantravelace.net',
     'www.japantravelace.com',
 ]
 
